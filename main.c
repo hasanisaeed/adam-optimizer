@@ -8,25 +8,31 @@
 int main() {
     srand(time(NULL)); // Seed the random number generator
 
+    int n_features, n_samples, n_epochs;
+
+    // Read number of features, samples, and epochs from input
+    printf("Enter number of features: ");
+    scanf("%d", &n_features);
+    printf("Enter number of samples: ");
+    scanf("%d", &n_samples);
+    printf("Enter number of epochs: ");
+    scanf("%d", &n_epochs);
+
     // Initialize LinearRegression model and AdamOptimizer
     LinearRegression model;
     AdamOptimizer optimizer;
-    int n_features = 2; // number of features for example bias and weight
 
     initLinearRegression(&model, n_features);
     // Initialize AdamOptimizer with desired parameters
     initAdamOptimizer(&optimizer, 0.001, 0.9, 0.999, 1e-8, n_features);
 
-
-    int n_samples = 100;
-    int n_epochs  = 100;
-    // Dynamically allocate memory for input data X (100 samples, 2 features)
+    // Dynamically allocate memory for input data X (n_samples, n_features)
     double **X = (double **)malloc(n_samples * sizeof(double *));
     for (int i = 0; i < n_samples; i++) {
         X[i] = (double *)malloc(n_features * sizeof(double));
     }
 
-    // Dynamically allocate memory for target data y (100 samples)
+    // Dynamically allocate memory for target data y (n_samples)
     double *y = (double *)malloc(n_samples * sizeof(double));
 
     // Generate fake data
@@ -37,7 +43,7 @@ int main() {
         y[i] = ((double)rand() / RAND_MAX) * 10.0; // Random target values between 0 and 10
     }
 
-    // Train my model
+    // Train the model
     trainLinearRegression(&model, X, y, n_samples, &optimizer, n_epochs);
 
     // Free resources
