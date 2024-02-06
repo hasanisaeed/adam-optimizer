@@ -1,5 +1,5 @@
 # adam-optimizer
-Implementing the Adam optimizer to understand the mathematics behind it.
+> This is an implementation in C language for a better understanding of the mechanics behind the Adam Optimizer, based on the article by [Cristian Leo](https://towardsdatascience.com/the-math-behind-adam-optimizer-c41407efe59b).
 
 #### Initialize:
 - Initialize the first moment vector: $m_0 = 0$
