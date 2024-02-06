@@ -19,8 +19,7 @@ int main() {
 
 
     int n_samples = 100;
-    int n_features = 2;
-
+    int n_epochs  = 100;
     // Dynamically allocate memory for input data X (100 samples, 2 features)
     double **X = (double **)malloc(n_samples * sizeof(double *));
     for (int i = 0; i < n_samples; i++) {
@@ -44,7 +43,7 @@ int main() {
     // Free resources
     freeLinearRegression(&model);
     freeAdamOptimizer(&optimizer);
-    
+
     // Free the fake data resources
     for (int i = 0; i < n_samples; i++) {
         free(X[i]);
