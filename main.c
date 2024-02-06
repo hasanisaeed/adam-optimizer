@@ -5,6 +5,18 @@
 #include "adam.h"
 #include "train.h"
 
+// Function to display the dataset
+void showDataset(double **X, double *y, int n_samples, int n_features) {
+    printf("Dataset (X and Y):\n");
+    for (int i = 0; i < n_samples; i++) {
+        printf("Sample %d: ", i+1);
+        for (int j = 0; j < n_features; j++) {
+            printf("X[%d] = %.2f ", j, X[i][j]);
+        }
+        printf("Y = %.2f\n", y[i]);
+    }
+}
+
 int main() {
     srand(time(NULL)); // Seed the random number generator
 
@@ -42,6 +54,8 @@ int main() {
         }
         y[i] = ((double)rand() / RAND_MAX) * 10.0; // Random target values between 0 and 10
     }
+
+    showDataset(X, y, n_samples, n_features);
 
     // Train the model
     trainLinearRegression(&model, X, y, n_samples, &optimizer, n_epochs);
