@@ -1,0 +1,5 @@
+# IDE
+.vscode
+obj
+bin
+*.cbp
