@@ -1,4 +1,5 @@
 #include <math.h>
+#include "linear_regression.h"
 
 // Training loop for Linear Regression
 void trainLinearRegression(LinearRegression *model, double **X, double *y, int n_samples, double learning_rate, int n_epochs) {
