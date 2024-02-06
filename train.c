@@ -1,6 +1,6 @@
 #include <math.h>
 
-// Simplified training loop for Linear Regression
+// Training loop for Linear Regression
 void trainLinearRegression(LinearRegression *model, double **X, double *y, int n_samples, double learning_rate, int n_epochs) {
     for (int epoch = 0; epoch < n_epochs; epoch++) {
         double dW[model->n_features];
