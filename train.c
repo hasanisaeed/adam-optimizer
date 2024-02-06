@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdio.h>
 #include "linear_regression.h"
 
 // Training loop for Linear Regression
@@ -21,5 +22,10 @@ void trainLinearRegression(LinearRegression *model, double **X, double *y, int n
             model->weights[i] -= learning_rate * dW[i];
         }
         model->bias -= learning_rate * db;
+
+        printf("Epoch %d: Parameters after update:\n", epoch + 1);
+        for (int i = 0; i < model->n_features; i++) {
+            printf("Param[%d] = %.4d\n", i, model->weights);
+        }
     }
 }
